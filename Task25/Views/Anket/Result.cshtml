@@ -1,0 +1,74 @@
+﻿@model Task25.Models.AnketResponseViewModel
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<div class="form-result">
+    <div id="result-title">
+        <h2>Your information</h2>
+    </div>
+    <div>
+        <h3>First Name</h3>
+        <p>@Model.FirstName</p>
+    </div>
+    <div>
+        <h3>Second Name</h3>
+        <p>@Model.SecondName</p>
+    </div>
+    <div>
+        <h3>Birthday Date</h3>
+        <p>@Html.DisplayFor(m => m.BDate)</p>
+    </div>
+
+    <div>
+        <h3>On an average how often do you visit public libraries?</h3>
+        <p>@Model.OftenVisit</p>
+    </div>
+
+    <div>
+        <h3>How did you find out about the library services? Select all that is applicable</h3>
+        @if (Model is null || Model.FindService is null || Model.FindService.FirstOrDefault(x => x.State == true) is null)
+        {
+            <p></p>
+        }
+        else if (Model.FindService.Where(x => x.State).Count() > 1)
+        {
+            <div class="anket-list">
+                <ul>
+                    @foreach (var item in Model.FindService)
+                    {
+                        if (item.State)
+                        {
+                            <li>@item.Option</li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        }
+        else
+        {
+            <p>@Model.FindService.SingleOrDefault(x => x.State == true).Option</p>
+        }
+
+    </div>
+
+    <div>
+        <h3>Please select your highest level of educational qualification</h3>
+        <p>@Model.Edu</p>
+    </div>
+
+    <div>
+        <h3>What is your employment status?</h3>
+        <p>@Model.EmploymentStatus</p>
+    </div>
+
+    <div>
+        <h3>Is there anything else you would like to add to make the library services better?</h3>
+        <p>@Model.ServicesBetter</p>
+
+    </div>
+
+</div>
+

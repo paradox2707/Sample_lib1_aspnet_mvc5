@@ -1,0 +1,80 @@
+﻿@using Task25.Models;
+@model Task25.Models.AnketResponseViewModel
+@{
+    ViewBag.Title = "Anket";
+}
+
+<div id="form-main">
+    @using (Html.BeginForm("Result", "Anket", FormMethod.Get))
+    {
+        @Html.ValidationSummary()
+
+        <div class="form-group">
+            <label for="fname">@Model.Anket["Name"].Description</label>
+            @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            <label for="fname">@Model.Anket["Surname"].Description</label>
+            @Html.EditorFor(m => m.SecondName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            <label for="bdate">@Model.Anket["Birthday"].Description</label>
+            @Html.EditorFor(m => m.BDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="radio">
+            <label>@Model.Anket["OftenVisit"].Description</label>
+            <ul>
+                @foreach (string inputString in Model.Anket["OftenVisit"].AnketChoices.Select(x => x.Name))
+                {
+                    <li>
+                        @Html.RadioButtonFor(m => m.OftenVisit, inputString)@inputString<br />
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="checkbox">
+            <label>@Model.Anket["FindService"].Description</label>
+            <ul>
+                @for (int i = 0; i < Model.FindService.Count(); i++)
+                {
+                    <li>
+                        @Html.HiddenFor(m => m.FindService[i].Option)
+                        @Html.CheckBoxFor(m => m.FindService[i].State)@Model.FindService[i].Option<br />
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="radio">
+            <label>@Model.Anket["Edu"].Description</label>
+            <ul>
+                @foreach (string inputString in Model.Anket["Edu"].AnketChoices.Select(x => x.Name))
+                {
+                    <li>
+                        @Html.RadioButtonFor(m => m.Edu, inputString)@inputString<br />
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="radio">
+            <label>@Model.Anket["EmploymentStatus"].Description</label>
+            <ul>
+                @foreach (string inputString in Model.Anket["EmploymentStatus"].AnketChoices.Select(x => x.Name))
+                {
+                    <li>
+                        @Html.RadioButtonFor(m => m.EmploymentStatus, inputString)@inputString<br />
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Is there anything else you would like to add to make the library services better?</label>
+            @Html.TextAreaFor(m => m.ServicesBetter, new { @class = "form-control", placeholder = "Write something..", style = "height:200px" })
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    }
+</div>
+

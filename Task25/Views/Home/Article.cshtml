@@ -1,0 +1,16 @@
+﻿@model Task25.Models.ArticleViewModel
+
+@{
+    ViewBag.Title = "Article";
+}
+
+<div class="block-articles-comments">
+
+    <article class="article-comment">
+        <h2>@Model.Title</h2>
+        <p><time>@Model.Date.ToShortDateString()</time></p>
+        <p>@Model.Text</p>
+    </article>
+ 
+</div>
+

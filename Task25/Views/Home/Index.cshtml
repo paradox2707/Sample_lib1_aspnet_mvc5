@@ -1,0 +1,38 @@
+﻿@model Task25.Models.Pagination.PageArticlesViewModel
+@using Task25.Infrustructure
+@using Task25.Models
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="btn btnMoreLess">
+    @*Test
+        @Url.Action("EditArticle", new { id = 0 });*@
+    @Html.ActionLink("Add new Article", "EditArticle", new { id = 0 })
+</div>
+
+<div class="block-articles-comments">
+    @foreach (var item in Model.Articles)
+    {
+        <article class="article-comment">
+            <h2>@Html.ActionLink(item.Title, "Article", new { item.Id })</h2>
+            <p><time>@item.Date.ToShortDateString()</time></p>
+            @foreach (var teg in item.Tegs)
+            {
+                <span class="hash-tegs">#</span>
+                <span class="hash-tegs">
+                @Html.ActionLink(teg.Name, "Index")
+                </span>
+            }
+            <p>@item.TextPreview<span class="dots">...</span><span class="more">@item.TextPostview</span></p>
+            <button class="btn btnMoreLess">Read more</button>
+            <span>@Html.ActionLink("Edit", "EditArticle", new { item.Id })</span>
+</article>
+    }
+</div>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>
+

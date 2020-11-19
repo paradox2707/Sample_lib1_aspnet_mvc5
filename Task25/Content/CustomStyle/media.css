@@ -1,0 +1,19 @@
+﻿@media screen and (max-width: 767px) {
+
+    footer img {
+        position: absolute;
+        right: 15%;
+        width: 10%;
+        margin: -7%;
+    }
+
+    article {
+        margin: 5%;
+    }
+
+    #form-main {
+        /*border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);*/
+        padding: 15px;
+    }
+}

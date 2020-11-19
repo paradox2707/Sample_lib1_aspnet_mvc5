@@ -1,0 +1,145 @@
+﻿/*tegs*/
+.hash-tegs {
+    color: #337ab7;
+}
+
+.hash-tegs a{
+    color: #337ab7 !important;
+}
+
+.tegs {
+    width: 80%;
+}
+
+.inactive {
+    pointer-events: none;
+}
+/*pagination*/
+.btn-group > .btn-default:not(.selected) {
+    color: #085766 !important;
+}
+
+/*Sticky footer https://getbootstrap.com/docs/3.4/examples/sticky-footer/  http://bootstrapessentials.com/fulldocs/components/footer/footer-sticky/  */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 140px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /*/* Set the fixed height of the footer here */
+    /*height: 140px;*/
+}
+
+/*text more or less*/
+.more {
+    display: none;
+}
+
+.btnMoreLess {
+    background-color: #337ab7;
+}
+
+.btnMoreLess:focus {
+    outline: none;
+}
+
+/*level low*/
+body {
+    background-color: #006a80;
+    color: white;
+}
+
+.btn-primary{
+    font-size: 24px;
+}
+/*form-result*/
+.form-result {
+    padding: 2%;
+    margin: 2%;
+}
+
+.form-result p, .anket-list {
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 2%;
+    }
+
+/*form-result*/
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:focus, a:hover, a:active {
+    color: #085766;
+}
+/*header*/
+#logo img {
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: cover;
+    object-position: 10%;
+}
+
+#header-title {
+    grid-area: title;
+    text-transform: uppercase;
+    font-size: x-large;
+    color: white;
+}
+
+
+
+#form-main {
+    
+    /*border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);*/
+    padding: 40px;
+}
+
+form textarea{
+    width: 100%;
+}
+/*form*/
+/*articles*/
+.article-comment {
+    padding: 2%;
+    border: 3px solid white;
+    border-radius: 15px;
+    margin: 2%;
+}
+/*articles*/
+/*footer*/
+footer img {
+    position: absolute;
+    right: 27%;
+    width: 5%;
+    margin: -4%;
+}
+/*footer*/
+
+
+/*validation area*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.validation-summary-errors{
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.input-validation-error{
+    border: 2px  solid #ff0000;
+    background-color: #fee;
+}
+/**/
+
